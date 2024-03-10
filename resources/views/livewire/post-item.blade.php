@@ -5,10 +5,18 @@
 
     <div class="grow space-y-2">
         <div class="font-bold text-lg">
-            {{ $post->id }} {{ $post->user->name }}
+            {{ $post->user->name }}
         </div>
         <div>
             <p>{{ $post->body }}</p>
+        </div>
+
+        <div class="flex items-center space-x-2">
+            @can('delete', $post)
+            <div>
+                <button class="text-indigo-500" wire:click="delete">Delete</button>
+            </div>
+            @endcan
         </div>
     </div>
 </div>
